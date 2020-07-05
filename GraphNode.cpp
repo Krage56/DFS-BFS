@@ -2,17 +2,17 @@
 
 
 
-GraphNode::GraphNode(size_t num){
+GraphNode::GraphNode(long long num){
 	_number = num;
 }
 
-const std::unordered_map<size_t, size_t>& GraphNode::getWays() const
+const std::unordered_map<long long, long long>& GraphNode::getWays() const
 {
 	return _ways;
 }
 
 
-size_t GraphNode::getWay(size_t node) const{
+long long GraphNode::getWay(long long node) const{
 	auto way = _ways.find(node);
 	if (way != _ways.end()) {
 		return way->second;
@@ -22,7 +22,7 @@ size_t GraphNode::getWay(size_t node) const{
 	}
 }
 
-void GraphNode::addNeighbour(size_t node_num, size_t way){
+void GraphNode::addNeighbour(long long node_num, long long way){
 	_ways.insert(std::make_pair(node_num, way));
 }
 
