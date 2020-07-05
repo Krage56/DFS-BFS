@@ -1,15 +1,15 @@
 #pragma once
 #include <unordered_map>
 class GraphNode{
-	std::unordered_map<size_t, size_t> _ways;
+	std::unordered_map<long long, long long> _ways;
 public:
-	GraphNode(size_t num);
+	GraphNode(long long num);
 	//порядковый номер вершины и расстояние до неё
-	const std::unordered_map<size_t, size_t>& getWays() const;
-	size_t _number;
-	size_t getNum()const { return _number; };
-	size_t getWay(size_t node)const;
-	void addNeighbour(size_t node_num, size_t way);
+	const std::unordered_map<long long, long long>& getWays() const;
+	long long _number;
+	long long getNum()const { return _number; };
+	long long getWay(long long node)const;
+	void addNeighbour(long long node_num, long long way);
 	~GraphNode();
 };
 
