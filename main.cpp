@@ -15,6 +15,6 @@ int main(int args, char*argv[]) {
 		for (const auto el : g.getPath(way, 7))
 			cout << el << " ";
 	}
-	system("pause");
+	cout <<"Hello world!" << endl;
 	return 0;
 }
