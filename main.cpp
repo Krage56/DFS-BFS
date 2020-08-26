@@ -7,7 +7,6 @@ using namespace std;
 int main(int args, char*argv[]) {
 	Graph g;
 	g.getData(argv);
-	//g.showData();
 	bool isExist;
 	vector<long long> way;
 	std::tie(isExist, way) = g.BFS(7);

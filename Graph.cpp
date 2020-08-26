@@ -45,12 +45,12 @@ Graph::Graph(){
 std::vector<long long> Graph::getPath(std::vector<long long>& prior, long long dest, long long origin) const
 {
 	vector<long long> ans;
-	for (int v = dest; v != origin; v = prior[v])  // Проходим по пути из конца в начало
+	for (int v = dest; v != origin; v = prior[v])  // РџСЂРѕС…РѕРґРёРј РїРѕ РїСѓС‚Рё РёР· РєРѕРЅС†Р° РІ РЅР°С‡Р°Р»Рѕ
 	{
-		ans.push_back(v);  // Запоминаем вершину
+		ans.push_back(v);  // Р—Р°РїРѕРјРёРЅР°РµРј РІРµСЂС€РёРЅСѓ
 	}
 	ans.push_back(origin);
-	reverse(ans.begin(), ans.end());  // Переворачиваем путь
+	reverse(ans.begin(), ans.end());  // РџРµСЂРµРІРѕСЂР°С‡РёРІР°РµРј РїСѓС‚СЊ
 	return ans;
 }
 
@@ -60,15 +60,15 @@ Graph::~Graph()
 
 bool Graph::processing(fstream *file) {
 	if (!file->is_open()) return false;
-	return_in_pos(file, true);//Вернуться к началу файла
-	//посчитать количество столбцов в матрице = количеству строк = количеству вершин
+	return_in_pos(file, true);//Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє РЅР°С‡Р°Р»Сѓ С„Р°Р№Р»Р°
+	//РџРѕСЃС‡РёС‚Р°С‚СЊ РєРѕР»-РІРѕ СЃС‚РѕР±С†РѕРІ РІ РјР°С‚СЂРёС†Рµ = РєРѕР»-РІСѓ СЃС‚СЂРѕРє = РєРѕР»-РІСѓ РІРµСЂС€РёРЅ
 	string buf;
 	getline(*file, buf);
 	long long num_items = count(buf.begin(), buf.end(), ' ');
 	num_items += 1;
 	return_in_pos(file, true);
 
-	//читаем матрицу
+	//Р§РёС‚Р°РµРј РјР°С‚СЂРёС†Сѓ
 	for (long long i = 0; i < num_items; ++i) {
 		GraphNode* node = new GraphNode(i);
 		_data.insert(std::make_pair(i, node));
