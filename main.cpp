@@ -3,7 +3,6 @@
 #include <vector>
 #include <map>
 #include <fstream>
-#include <stack>
 #include <queue>
 #include <algorithm>
 #include <string>
@@ -169,22 +168,14 @@ auto Graph::BFS(long long num, long long origin) const {
     }
     long long current = origin;
     prior[origin] = origin;
-    prices[origin] = /*_data.at(origin)->getWay(origin) == -1?0:1*/0;//сразу определяем, сколько от элемента до себя же
-    while (!queue.empty() /*&& num != current*/) {
+    prices[origin] = 0;//сразу определяем, сколько от элемента до себя же
+    while (!queue.empty() && num != current) {
         current = queue.front();
         if (!visited[current]) {
             visited[current] = true;
             for (const auto iter : _data.at(current)->getWays()) {
                 queue.push(iter.first);
-//                if(prices[current] == 0){
-//                    if(!visited[iter.first] || prices[iter.first] > 1){
-//                        prices[iter.first] = 1;
-//                    }
-//                }
-//                if(!visited[iter.first] || prices[iter.first] > prices[current] + 1){
-//                    prices[iter.first] = prices[current] + 1;
-//                }
-                if(iter.first != origin && !visited[iter.first]){
+                if(!visited[iter.first]){
                     prices[iter.first] = prices[current] + 1;
                 }
                 prior[iter.first] = !visited[iter.first] ? current : prior[iter.first];
