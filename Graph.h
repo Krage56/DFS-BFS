@@ -11,7 +11,7 @@ public:
 	void getData(char*argv[]);
 	void showData()const;
 	std::tuple<bool, std::vector<long long>> DFS(long long num, long long origin = 0)const;
-	std::tuple<bool, std::vector<long long>> BFS(long long num, long long origin = 0)const;
+	auto BFS(long long num, long long origin = 0)const;
 	std::vector<long long> getPath(std::vector<long long>& prior, long long dest, long long origin = 0)const;
 	~Graph();
 protected:
